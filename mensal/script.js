@@ -1,3 +1,4 @@
+console.log("O script está funcionando!");
 // Acessa as credenciais do arquivo .env
 const SECRET_KEY = process.env.ALLOWPAY_SECRET_KEY;
 const COMPANY_ID = process.env.ALLOWPAY_COMPANY_ID;
