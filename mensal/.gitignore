@@ -1,0 +1,5 @@
+# Ignorar arquivos de ambiente que contêm credenciais secretas
+.env
+
+# Ignorar diretórios de dependências (se você usar Node.js)
+/node_modules
