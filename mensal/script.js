@@ -1,9 +1,14 @@
-// Acessa o token da Buckpay do arquivo .env
-const BUCKPAY_TOKEN = process.env.BUCKEPAY_TOKEN;
+// Acessa as credenciais do arquivo .env
+const SECRET_KEY = process.env.ALLOWPAY_SECRET_KEY;
+const COMPANY_ID = process.env.ALLOWPAY_COMPANY_ID;
+
+// Autenticação Basic da AllowPay
+const authString = btoa(`${SECRET_KEY}:${COMPANY_ID}`);
 
 // Configurações de Alta Conversão
 const VALOR_PAGAMENTO = 990; // em centavos
 const UPSELL_URL = 'https://upsell.chatdescobrindosegredos.com/';
+const API_BASE_URL = 'https://api.allowpay.online/functions/v1';
 
 // Elementos de Conversão
 const loadingSection = document.getElementById('loading-section');
@@ -80,26 +85,20 @@ function startCountdown() {
   return setInterval(update, 1000);
 }
 
-// Verificar Status com Buckpay API
+// Verificar Status com AllowPay API
 async function checkPaymentStatus(id) {
   try {
-   const response = await fetch('https://api.realtechdev.com.br/v1/transactions', {
-    method: 'POST',
-    headers: {
-        'Authorization': `Bearer ${BUCKEPAY_TOKEN}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        // Adicione esta linha:
-        'User-Agent': 'Buckpay API' 
-    },
-    body: JSON.stringify(transactionRequest),
-    signal: AbortSignal.timeout(8000)
+    const res = await fetch(`${API_BASE_URL}/transactions/${id}`, {
+      headers: {
+        'Authorization': `Basic ${authString}`,
+        'Accept': 'application/json'
+      }
     });
     
     if (!res.ok) throw new Error('Erro na verificação');
     
     const data = await res.json();
-    return data.data.status === 'paid';
+    return data.status === 'paid'; // Ajuste 'status' conforme a resposta da API da AllowPay
   } catch (error) {
     console.error('Erro ao verificar status:', error);
     return false;
@@ -136,26 +135,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const transactionRequest = {
-      external_id: 'teste_' + Date.now(),
-      payment_method: "pix",
       amount: VALOR_PAGAMENTO,
-      buyer: {
+      payment_method: 'pix',
+      customer: {
         name: clientData.nome,
         email: clientData.email,
         document: clientData.cpf,
-        phone: clientData.telefone
+        phone: clientData.telefone,
+        tracking: clientData.utm
       },
-      product: {
-        id: "1",
-        name: "Oferta Especial"
-      },
-      tracking: clientData.utm
+      // Campos adicionais podem ser necessários, como order_id, etc.
     };
 
-    const response = await fetch('https://api.realtechdev.com.br/v1/transactions', {
+    const response = await fetch(`${API_BASE_URL}/transactions`, {
       method: 'POST',
       headers: { 
-        'Authorization': `Bearer ${BUCKEPAY_TOKEN}`,
+        'Authorization': `Basic ${authString}`,
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
@@ -165,7 +160,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Erro da API Buckpay:', errorText);
+      console.error('Erro da API AllowPay:', errorText);
       throw new Error(errorText);
     }
     
@@ -176,7 +171,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     // Armazenar o external_id para a verificação de status
-    externalId = transactionData.data.external_id || transactionRequest.external_id;
+    externalId = transactionData.data.id; // Supondo que a AllowPay retorne o ID em 'id'
 
     qrCodeImg.src = `data:image/png;base64,${transactionData.data.pix.qrcode_base64}`;
     pixCodeInput.value = transactionData.data.pix.code;
