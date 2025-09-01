@@ -1,5 +1,7 @@
-# Ignorar arquivos de ambiente com credenciais
-.env
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
 
-# Ignorar diretórios de dependências (se você usar Node.js)
-/node_modules
+# Env
+.env
