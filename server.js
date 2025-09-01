@@ -2,22 +2,35 @@ import express from "express";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import { Buffer } from "buffer";
+import path from "path";
+import { fileURLToPath } from 'url';
 
 dotenv.config();
-const app = express();
-app.use(express.json());
 
-// Endpoint que gera PIX
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'mensal')));
+// Endpoint que gera o PIX
 app.post("/api/pix", async (req, res) => {
   try {
     const API_KEY = process.env.BUCKPAY_API_KEY;
     const COMPANY_ID = process.env.BUCKPAY_COMPANY_ID;
 
+    // Garante que as chaves de API estão definidas
+    if (!API_KEY || !COMPANY_ID) {
+      return res.status(500).json({ error: "API_KEY or COMPANY_ID not configured in .env" });
+    }
+
     const authString = Buffer.from(`${API_KEY}:`).toString("base64");
 
     const payload = {
       amount: "10.00",
-      orderId: "my-order-id-001",
+      orderId: `my-order-id-${Date.now()}`,
       description: "Pagamento do Produto",
       expirationInMinutes: 10,
       companyId: COMPANY_ID
@@ -36,8 +49,9 @@ app.post("/api/pix", async (req, res) => {
     res.status(response.status).json(data);
 
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("Erro ao processar pagamento:", err);
+    res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
 
-app.listen(3000, () => console.log("Servidor rodando em http://localhost:3000"));
+app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));

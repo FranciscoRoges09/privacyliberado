@@ -1,448 +1,450 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🚨 Confirme Seu Pagamento via PIX | Acesso Imediato</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/ZIeenG62rsyI.css">
-  <style>
-    :root {
-      --primary: #FF6B00;
-      --primary-light: #FF8C00;
-      --primary-dark: #E65100;
-      --accent: #FFAB40;
-      --text: #2E2E2E;
-      --light: #FFFFFF;
-      --light-gray: #F5F5F5;
-      --success: #4CAF50;
-      --error: #F44336;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 Confirme Seu Pagamento via PIX | Acesso Imediato</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/ZIeenG62rsyI.css">
+    <style>
+      :root {
+        --primary: #FF6B00;
+        --primary-light: #FF8C00;
+        --primary-dark: #E65100;
+        --accent: #FFAB40;
+        --text: #2E2E2E;
+        --light: #FFFFFF;
+        --light-gray: #F5F5F5;
+        --success: #4CAF50;
+        --error: #F44336;
+      }
 
-    /* Efeito Glow Animado */
-    @keyframes gradientGlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+      /* Efeito Glow Animado */
+      @keyframes gradientGlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
 
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(-45deg, #FFF8F2, #FFF2E6, #FFF8F2, #FFEEE0);
-      background-size: 400% 400%;
-      animation: gradientGlow 12s ease infinite;
-      color: var(--text);
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(-45deg, #FFF8F2, #FFF2E6, #FFF8F2, #FFEEE0);
+        background-size: 400% 400%;
+        animation: gradientGlow 12s ease infinite;
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    /* Container Principal - Foco Total na Conversão */
-    .conversion-machine {
-      width: 100%;
-      max-width: 480px;
-      background: var(--light);
-      border-radius: 16px;
-      box-shadow: 0 20px 50px rgba(255, 107, 0, 0.2);
-      overflow: hidden;
-      margin: 20px;
-      position: relative;
-      transform: scale(0.98);
-      opacity: 0;
-      animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    @keyframes scaleIn {
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    /* Cabeçalho de Alta Conversão */
-    .header-conversion {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .banner-privacy {
-      width: 100%;
-      display: block;
-      border-bottom: 4px solid var(--primary);
-    }
-
-    .security-trigger {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: rgba(0,0,0,0.7);
-      color: var(--light);
-      padding: 8px 15px;
-      border-radius: 50px;
-      font-size: 14px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      backdrop-filter: blur(5px);
-      animation: pulse 2s infinite;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-      50% { transform: scale(1.03); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-      100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-    }
-
-    /* Corpo Otimizado para Conversão */
-    .conversion-body {
-      padding: 25px;
-      text-align: center;
-    }
-
-    /* Countdown Urgente */
-    .urgency-countdown {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: var(--light);
-      padding: 14px;
-      border-radius: 10px;
-      margin: 20px 0;
-      box-shadow: 0 5px 20px rgba(255, 107, 0, 0.3);
-      transform: translateY(10px);
-      opacity: 0;
-      animation: slideUp 0.6s 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    @keyframes slideUp {
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .countdown-header {
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .countdown-timer {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      font-size: 28px;
-      font-weight: 700;
-    }
-
-    .countdown-segment {
-      background: rgba(0,0,0,0.2);
-      padding: 5px 12px;
-      border-radius: 6px;
-      min-width: 36px;
-    }
-
-    /* Área PIX - Foco Máximo */
-    .pix-conversion-area {
-      margin: 25px 0;
-      transform: scale(0.95);
-      opacity: 0;
-      animation: popIn 0.6s 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    @keyframes popIn {
-      0% { transform: scale(0.95); opacity: 0; }
-      70% { transform: scale(1.03); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .qr-code-container {
-      background: var(--light);
-      padding: 15px;
-      border-radius: 12px;
-      display: inline-block;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255, 107, 0, 0.2);
-      margin-bottom: 20px;
-    }
-
-    .qr-code-container img {
-      width: 200px;
-      height: 200px;
-      display: block;
-    }
-
-    /* Copy Section - Otimizada para Ação */
-    .copy-section {
-      margin: 25px 0;
-      transform: translateY(10px);
-      opacity: 0;
-      animation: slideUp 0.6s 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    .copy-title {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 12px;
-      color: var(--primary-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .copy-input-group {
-      display: flex;
-      max-width: 100%;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-    }
-
-    .copy-input {
-      flex: 1;
-      padding: 14px 16px;
-      border: none;
-      background: var(--light-gray);
-      font-size: 15px;
-      font-weight: 500;
-      min-width: 0;
-    }
-
-    .copy-button {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: var(--light);
-      border: none;
-      padding: 0 20px;
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .copy-button:hover {
-      background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    }
-
-    .copy-button.copied {
-      background: linear-gradient(135deg, var(--success), #2E7D32);
-      animation: bounce 0.5s;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    /* Payment Info - Destaque Visual */
-    .payment-highlight {
-      background: var(--light-gray);
-      border-radius: 12px;
-      padding: 18px;
-      margin: 25px 0;
-      text-align: left;
-      border-left: 4px solid var(--primary);
-      transform: translateY(10px);
-      opacity: 0;
-      animation: slideUp 0.6s 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    .payment-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 12px;
-      font-size: 15px;
-    }
-
-    .payment-label {
-      font-weight: 500;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .payment-value {
-      font-weight: 600;
-      color: var(--primary-dark);
-    }
-
-    /* Steps - Guia de Ação Clara */
-    .action-steps {
-      background: var(--light-gray);
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 25px;
-      transform: translateY(10px);
-      opacity: 0;
-      animation: slideUp 0.6s 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    .steps-title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 18px;
-      color: var(--primary-dark);
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .step {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
-      font-size: 15px;
-      text-align: left;
-    }
-
-    .step-number {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: var(--light);
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-
-    /* Loading Otimizado */
-    .loading-conversion {
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    .conversion-spinner {
-      width: 50px;
-      height: 50px;
-      border: 4px solid rgba(255, 107, 0, 0.1);
-      border-top-color: var(--primary);
-      border-radius: 50%;
-      margin: 0 auto 20px;
-      animation: spin 1s linear infinite;
-    }
-
-    .loading-text {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--primary-dark);
-    }
-
-    /* Responsivo - Conversão em Todos os Dispositivos */
-    @media (max-width: 480px) {
+      /* Container Principal - Foco Total na Conversão */
       .conversion-machine {
-        margin: 10px;
-        border-radius: 12px;
+        width: 100%;
+        max-width: 480px;
+        background: var(--light);
+        border-radius: 16px;
+        box-shadow: 0 20px 50px rgba(255, 107, 0, 0.2);
+        overflow: hidden;
+        margin: 20px;
+        position: relative;
+        transform: scale(0.98);
+        opacity: 0;
+        animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       }
-      
+
+      @keyframes scaleIn {
+        to { transform: scale(1); opacity: 1; }
+      }
+
+      /* Cabeçalho de Alta Conversão */
+      .header-conversion {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .banner-privacy {
+        width: 100%;
+        display: block;
+        border-bottom: 4px solid var(--primary);
+      }
+
+      .security-trigger {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0,0,0,0.7);
+        color: var(--light);
+        padding: 8px 15px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        backdrop-filter: blur(5px);
+        animation: pulse 2s infinite;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        50% { transform: scale(1.03); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+      }
+
+      /* Corpo Otimizado para Conversão */
       .conversion-body {
-        padding: 20px;
+        padding: 25px;
+        text-align: center;
       }
-      
+
+      /* Countdown Urgente */
+      .urgency-countdown {
+        background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        color: var(--light);
+        padding: 14px;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 5px 20px rgba(255, 107, 0, 0.3);
+        transform: translateY(10px);
+        opacity: 0;
+        animation: slideUp 0.6s 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      @keyframes slideUp {
+        to { transform: translateY(0); opacity: 1; }
+      }
+
+      .countdown-header {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
       .countdown-timer {
-        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        font-size: 28px;
+        font-weight: 700;
       }
-      
+
+      .countdown-segment {
+        background: rgba(0,0,0,0.2);
+        padding: 5px 12px;
+        border-radius: 6px;
+        min-width: 36px;
+      }
+
+      /* Área PIX - Foco Máximo */
+      .pix-conversion-area {
+        margin: 25px 0;
+        transform: scale(0.95);
+        opacity: 0;
+        animation: popIn 0.6s 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      @keyframes popIn {
+        0% { transform: scale(0.95); opacity: 0; }
+        70% { transform: scale(1.03); }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      .qr-code-container {
+        background: var(--light);
+        padding: 15px;
+        border-radius: 12px;
+        display: inline-block;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255, 107, 0, 0.2);
+        margin-bottom: 20px;
+      }
+
       .qr-code-container img {
-        width: 180px;
-        height: 180px;
+        width: 200px;
+        height: 200px;
+        display: block;
       }
-      
+
+      /* Copy Section - Otimizada para Ação */
+      .copy-section {
+        margin: 25px 0;
+        transform: translateY(10px);
+        opacity: 0;
+        animation: slideUp 0.6s 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .copy-title {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 12px;
+        color: var(--primary-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .copy-input-group {
+        display: flex;
+        max-width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      }
+
+      .copy-input {
+        flex: 1;
+        padding: 14px 16px;
+        border: none;
+        background: var(--light-gray);
+        font-size: 15px;
+        font-weight: 500;
+        min-width: 0;
+      }
+
       .copy-button {
-        padding: 0 15px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        color: var(--light);
+        border: none;
+        padding: 0 20px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="conversion-machine">
-    <div class="header-conversion">
-      <img src="images/yFnUC8oLGGPj.png" alt="Oferta Exclusiva" class="banner-privacy">
-      <div class="security-trigger">
-        <i class="fas fa-lock"></i> Pagamento 100% Seguro
+
+      .copy-button:hover {
+        background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      }
+
+      .copy-button.copied {
+        background: linear-gradient(135deg, var(--success), #2E7D32);
+        animation: bounce 0.5s;
+      }
+
+      @keyframes bounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+
+      /* Payment Info - Destaque Visual */
+      .payment-highlight {
+        background: var(--light-gray);
+        border-radius: 12px;
+        padding: 18px;
+        margin: 25px 0;
+        text-align: left;
+        border-left: 4px solid var(--primary);
+        transform: translateY(10px);
+        opacity: 0;
+        animation: slideUp 0.6s 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .payment-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        font-size: 15px;
+      }
+
+      .payment-label {
+        font-weight: 500;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .payment-value {
+        font-weight: 600;
+        color: var(--primary-dark);
+      }
+
+      /* Steps - Guia de Ação Clara */
+      .action-steps {
+        background: var(--light-gray);
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 25px;
+        transform: translateY(10px);
+        opacity: 0;
+        animation: slideUp 0.6s 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .steps-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 18px;
+        color: var(--primary-dark);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .step {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 15px;
+        text-align: left;
+      }
+
+      .step-number {
+        background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        color: var(--light);
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+
+      /* Loading Otimizado */
+      .loading-conversion {
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .conversion-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 107, 0, 0.1);
+        border-top-color: var(--primary);
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        animation: spin 1s linear infinite;
+      }
+
+      .loading-text {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--primary-dark);
+      }
+
+      /* Responsivo - Conversão em Todos os Dispositivos */
+      @media (max-width: 480px) {
+        .conversion-machine {
+          margin: 10px;
+          border-radius: 12px;
+        }
+        
+        .conversion-body {
+          padding: 20px;
+        }
+        
+        .countdown-timer {
+          font-size: 24px;
+        }
+        
+        .qr-code-container img {
+          width: 180px;
+          height: 180px;
+        }
+        
+        .copy-button {
+          padding: 0 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="conversion-machine">
+      <div class="header-conversion">
+        <img src="images/yFnUC8oLGGPj.png" alt="Oferta Exclusiva" class="banner-privacy">
+        <div class="security-trigger">
+          <i class="fas fa-lock"></i> Pagamento 100% Seguro
+        </div>
+      </div>
+
+      <div class="conversion-body">
+        <div id="loading-section" class="loading-conversion">
+          <div class="conversion-spinner"></div>
+          <div id="loading-text" class="loading-text">Gerando PIX... Aguarde...</div>
+        </div>
+
+        <div id="pix-section" style="display: none;">
+          <div class="urgency-countdown">
+            <div class="countdown-header">
+              <i class="fas fa-bolt"></i> OFERTA VÁLIDA POR TEMPO LIMITADO
+            </div>
+            <div class="countdown-timer">
+              <span class="countdown-segment" id="minutes">05</span>
+              <span>:</span>
+              <span class="countdown-segment" id="seconds">00</span>
+            </div>
+          </div>
+
+          <div class="pix-conversion-area">
+            <div class="qr-code-container">
+              <img id="qrcode-img" alt="QR Code PIX">
+            </div>
+          </div>
+
+          <div class="copy-section">
+            <div class="copy-title">
+              <i class="fas fa-copy"></i> COPIE O CÓDIGO PIX ABAIXO
+            </div>
+            <div class="copy-input-group">
+              <input type="text" id="pix-code" readonly="" class="copy-input">
+              <button id="copy-btn" class="copy-button">
+                <i class="far fa-copy"></i> Copiar
+              </button>
+            </div>
+          </div>
+
+          <div class="payment-highlight">
+            <div class="payment-item">
+              <span class="payment-label"><i class="fas fa-fire"></i> Valor:</span>
+              <span class="payment-value" id="VALOR_PAGAMENTO">R$ 9,90</span>
+            </div>
+            <div class="payment-item">
+              <span class="payment-label"><i class="fas fa-clock"></i> Válido até:</span>
+              <span class="payment-value" id="expiration">--/--/---- --:--</span>
+            </div>
+          </div>
+
+          <div class="action-steps">
+            <h3 class="steps-title"><i class="fas fa-magic"></i> COMO CONCLUIR SEU PAGAMENTO:</h3>
+            <div class="step">
+              <span class="step-number">1</span>
+              <span><strong>Copie</strong> o código PIX acima</span>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <span><strong>Abra</strong> seu app de banco e vá para a seção PIX</span>
+            </div>
+            <div class="step">
+              <span class="step-number">3</span>
+              <span><strong>Cole</strong> o código e confirme o pagamento</span>
+            </div>
+            <div class="step">
+              <span class="step-number">4</span>
+              <span><strong>Aguarde</strong> a confirmação automática (não feche esta página)</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="conversion-body">
-      <div id="loading-section" class="loading-conversion">
-        <div class="conversion-spinner"></div>
-       <div id="loading-text" class="loading-text">Gerando PIX... Aguarde...</div>
-      </div>
-
-      <div id="pix-section" style="display: none;">
-        <div class="urgency-countdown">
-          <div class="countdown-header">
-            <i class="fas fa-bolt"></i> OFERTA VÁLIDA POR TEMPO LIMITADO
-          </div>
-          <div class="countdown-timer">
-            <span class="countdown-segment" id="minutes">05</span>
-            <span>:</span>
-            <span class="countdown-segment" id="seconds">00</span>
-          </div>
-        </div>
-
-        <div class="pix-conversion-area">
-          <div class="qr-code-container">
-            <img id="qrcode-img" alt="QR Code PIX">
-          </div>
-        </div>
-
-        <div class="copy-section">
-          <div class="copy-title">
-            <i class="fas fa-copy"></i> COPIE O CÓDIGO PIX ABAIXO
-          </div>
-          <div class="copy-input-group">
-            <input type="text" id="pix-code" readonly="" class="copy-input">
-            <button id="copy-btn" class="copy-button">
-              <i class="far fa-copy"></i> Copiar
-            </button>
-          </div>
-        </div>
-
-        <div class="payment-highlight">
-          <div class="payment-item">
-            <span class="payment-label"><i class="fas fa-fire"></i> Valor:</span>
-            <span class="payment-value" id="VALOR_PAGAMENTO">R$ 9,90</span>
-          </div>
-          <div class="payment-item">
-            <span class="payment-label"><i class="fas fa-clock"></i> Válido até:</span>
-            <span class="payment-value" id="expiration">--/--/---- --:--</span>
-          </div>
-        </div>
-
-        <div class="action-steps">
-          <h3 class="steps-title"><i class="fas fa-magic"></i> COMO CONCLUIR SEU PAGAMENTO:</h3>
-          <div class="step">
-            <span class="step-number">1</span>
-            <span><strong>Copie</strong> o código PIX acima</span>
-          </div>
-          <div class="step">
-            <span class="step-number">2</span>
-            <span><strong>Abra</strong> seu app de banco e vá para a seção PIX</span>
-          </div>
-          <div class="step">
-            <span class="step-number">3</span>
-            <span><strong>Cole</strong> o código e confirme o pagamento</span>
-          </div>
-          <div class="step">
-            <span class="step-number">4</span>
-            <span><strong>Aguarde</strong> a confirmação automática (não feche esta página)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js" type="module"></script>
- 
-</body></html>
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
