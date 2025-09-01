@@ -375,14 +375,9 @@
 
     <div class="conversion-body">
       <div id="loading-section" class="loading-conversion">
-            <div style="color: var(--error); margin-bottom: 20px;">
-              <i class="fas fa-exclamation-triangle"></i> Erro ao processar pagamento: Failed to fetch
-            </div>
-            <button onclick="window.location.reload()" style="background: var(--primary); color: white; border: none; padding: 12px 24px; 
-              border-radius: 8px; cursor: pointer; font-weight: 500;">
-              Tentar Novamente
-            </button>
-          </div>
+        <div class="conversion-spinner"></div>
+        <div class="loading-text">Gerando PIX... Aguarde...</div>
+      </div>
 
       <div id="pix-section" style="display: none;">
         <div class="urgency-countdown">
@@ -448,7 +443,5 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
-  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" data-cf-beacon="{" version":"2024.11.0","token":"2dbc24c50d4e4d5bbece916cbcd013f8","r":1,"server_timing":{"name":{"cfcachestatus":true,"cfedge":true,"cfextpri":true,"cfl4":true,"cforigin":true,"cfspeedbrain":true},"location_startswith":null}}"="" crossorigin="anonymous"></script>
-
+ 
 </body></html>

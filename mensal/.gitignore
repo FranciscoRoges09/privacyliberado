@@ -1,4 +1,4 @@
-# Ignorar arquivos de ambiente que contêm credenciais secretas
+# Ignorar arquivos de ambiente com credenciais
 .env
 
 # Ignorar diretórios de dependências (se você usar Node.js)
